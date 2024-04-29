@@ -131,3 +131,4 @@ alias bashrc="nvim ~/.bashrc"
 alias projects="cd ~/Documents/projects"
 alias drive="onedrive --synchronize"
 alias v=nvim
+alias dot="cd ~/.config/dotfiles"
