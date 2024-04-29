@@ -1,0 +1,14 @@
+# create directories
+export XDG_CONFIG_HOME="$HOME"/.config
+mkdir -p "XDG_CONFIG_HOME"/alacritty/
+mkdir -p "XDG_CONFIG_HOME"/alacritty/themes
+
+# alacritty theme
+git clone https://github.com/rose-pine/alacritty.git ~/.config/alacritty/themes/repos
+cp ~/.config/alacritty/themes/repos/dist/* ~/.config/alacritty/themes
+rm -rf ~/.config/alacritty/themes/repos
+
+ln -sf "$PWD/.bashrc" "$HOME"/.bashrc
+ln -sf "$PWD/alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.toml
+ln -sf "$PWD/.tmux.conf" "$HOME"/.tmux.conf
+ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
