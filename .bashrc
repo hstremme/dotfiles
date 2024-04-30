@@ -133,3 +133,4 @@ alias projects="cd ~/Documents/projects"
 alias drive="onedrive --synchronize"
 alias v=nvim
 alias dot="cd ~/.config/dotfiles"
+alias alaback="alacritty -o 'window.opacity=1'"
