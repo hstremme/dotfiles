@@ -57,6 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
+    #default Prompt:
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u \[\033[01;34m\]\w \[\033[00m\]> '
 else
@@ -122,6 +123,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# runs local script that might contain additional cmds and scripts which are only valid on the local machine
+if [ -f ~/.bash_local ]; then
+    . ~/.bash_local
+fi
+
+# this should go into .bash_local
 function drush () {
     $(git rev-parse --show-toplevel)/vendor/bin/drush "$@"
 }
