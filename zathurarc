@@ -1,0 +1,20 @@
+set default-bg "#191724"
+set default-fg "#e0def4"
+
+set statusbar-bg "#191724"
+set statusbar-fg "#e0def4"
+
+set inputbar-bg "#191724"
+set inputbar-fg "#e0def4"
+
+set highlight-color "#f6c177"
+set highlight-active-color "#eb6f92"
+
+set font "CaskaydiaCove Nerd Font Mono 11"
+
+set recolor
+set recolor-lightcolor "#26233a"
+set recolor-darkcolor "#e0def4"
+set recolor-keephue
+
+map <F4> recolor

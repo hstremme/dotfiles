@@ -51,7 +51,13 @@ return require('packer').startup(function(use)
       requires = { {"nvim-lua/plenary.nvim"} }
   }
 
-  use 'lervag/vimtex'
+  use {
+      'lervag/vimtex',
+      lazy = false,
+      vim.cmd([[
+        let g:vimtex_view_method = "zathura"
+      ]])
+  }
 
   use 'jwalton512/vim-blade'
 end)
