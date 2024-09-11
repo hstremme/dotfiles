@@ -63,6 +63,9 @@ if [ "$color_prompt" = yes ]; then
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
+
+PROMPT_DIRTRIM=3
+
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
