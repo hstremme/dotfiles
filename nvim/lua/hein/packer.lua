@@ -59,4 +59,7 @@ return require('packer').startup(function(use)
   }
 
   use 'jwalton512/vim-blade'
+
+  -- Zen Mode
+  use 'folke/zen-mode.nvim'
 end)
