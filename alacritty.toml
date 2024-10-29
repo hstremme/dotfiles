@@ -1,11 +1,15 @@
 import = ["~/.config/alacritty/themes/rose-pine.toml"]
 
+[shell]
+program = "tmux"
+
 [window]
+startup_mode = "Maximized"
 decorations = "None"
-padding = { x = 6, y = 10 }
+padding = { x = 2, y = 2 }
 dynamic_padding = true
-opacity = 0.8
-blur = true
+#opacity = 0.8
+#blur = true
 
 [font]
 size = 11

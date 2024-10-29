@@ -112,10 +112,6 @@
 <Multi_key> <minus> <minus> <space>	: "­"	U00ad # SOFT HYPHEN
 <Multi_key> <percent> <o>		: "‰"	U2030 # PER MILLE SIGN
 # Some ligatures
-<Multi_key> <a> <e>			: "æ"	ae # LATIN SMALL LETTER AE
-<Multi_key> <A> <E>			: "Æ"	AE # LATIN CAPITAL LETTER AE
-<Multi_key> <o> <e>			: "œ"	oe # LATIN SMALL LIGATURE OE
-<Multi_key> <O> <E>			: "Œ"	OE # LATIN CAPITAL LIGATURE OE
 <Multi_key> <s> <s>			: "ß"	ssharp # LATIN SMALL LETTER SHARP S
 <Multi_key> <S> <S>			: "ẞ"	U1e9e # LATIN CAPITAL LETTER SHARP S
 <Multi_key> <f> <f>			: "ﬀ"	Ufb00 # LATIN SMALL LIGATURE FF
@@ -665,12 +661,8 @@
 <Multi_key> <minus> <e>			: "ē"	U0113 # LATIN SMALL LETTER E WITH MACRON
 <Multi_key> <e> <minus>			: "ē"	U0113 # LATIN SMALL LETTER E WITH MACRON
 <dead_breve> <E>			: "Ĕ"	U0114 # LATIN CAPITAL LETTER E WITH BREVE
-<Multi_key> <U> <E>			: "Ĕ"	U0114 # LATIN CAPITAL LETTER E WITH BREVE
-<Multi_key> <u> <E>			: "Ĕ"	U0114 # LATIN CAPITAL LETTER E WITH BREVE
 <Multi_key> <b> <E>			: "Ĕ"	U0114 # LATIN CAPITAL LETTER E WITH BREVE
 <dead_breve> <e>			: "ĕ"	U0115 # LATIN SMALL LETTER E WITH BREVE
-<Multi_key> <U> <e>			: "ĕ"	U0115 # LATIN SMALL LETTER E WITH BREVE
-<Multi_key> <u> <e>			: "ĕ"	U0115 # LATIN SMALL LETTER E WITH BREVE
 <Multi_key> <b> <e>			: "ĕ"	U0115 # LATIN SMALL LETTER E WITH BREVE
 <dead_abovedot> <E>			: "Ė"	U0116 # LATIN CAPITAL LETTER E WITH DOT ABOVE
 <Multi_key> <period> <E>		: "Ė"	U0116 # LATIN CAPITAL LETTER E WITH DOT ABOVE

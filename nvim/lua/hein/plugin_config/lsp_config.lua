@@ -21,7 +21,10 @@ require('mason-lspconfig').setup({
         bob = true,
         settings = {
           ltex = {
-            language = "de-DE"
+            language = "de-DE",
+            dictionary = {
+              ["de-DE"] = {"Co-Creation"}
+            }
           }
         },
         on_attach = function(client, bufnr)
