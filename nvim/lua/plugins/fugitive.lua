@@ -1,6 +1,6 @@
 return {
   'tpope/vim-fugitive',
   keys = {
-    { "<leader>gs", "<cmd>Git<cr>", desc = "Fugitive git status" }
+    { "<leader>gs", "<cmd>vert Git<cr>", desc = "Fugitive git status" }
   }
 }
