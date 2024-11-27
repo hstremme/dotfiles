@@ -10,5 +10,12 @@ return {
     vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope find keymaps' })
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope find help tags' })
   end,
+  opts = {
+    pickers = {
+      find_files = {
+        hidden = true
+      } 
+    }
+  }
 }
 
