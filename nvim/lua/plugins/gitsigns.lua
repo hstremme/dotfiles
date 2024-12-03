@@ -49,5 +49,10 @@ return {
       row = 0,
       col = 1
     },
-  }
+  },
+  config = function()
+    require('gitsigns').setup{
+      vim.keymap.set('n', "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Gitsigns Git blame" })
+    }
+  end
 }
