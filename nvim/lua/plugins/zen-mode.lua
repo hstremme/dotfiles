@@ -24,5 +24,8 @@ return {
   on_close = function()
     vim.cmd("LspStart")
   end
+  },
+  keys = {
+    {"<leader>zz", "<cmd>ZenMode<cr>", desc = "Zenmode toggle"}
   }
 }
