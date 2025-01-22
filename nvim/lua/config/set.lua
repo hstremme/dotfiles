@@ -10,6 +10,11 @@ vim.opt.smartindent = true
 
 vim.opt.scrolloff = 8
 
+-- Enable folding
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.wo.foldlevel = 99
+
 -- Set indentation specifically for PHP files
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "php",
@@ -19,3 +24,4 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt.shiftwidth = 4
     end,
 })
+

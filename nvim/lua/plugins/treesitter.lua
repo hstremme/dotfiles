@@ -20,6 +20,7 @@ return {
         "tmux",
         "toml",
         "twig",
+        "typescript",
         "vim",
         "xcompose",
         "yaml",
