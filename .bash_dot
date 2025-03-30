@@ -1,0 +1,17 @@
+#Shortens directory depth on prompt
+PROMPT_DIRTRIM=3
+
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u \[\033[01;34m\]\w \[\033[00m\]> '
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Custom Alias
+alias vimconfig="cd ~/.config/nvim/ && nvim ."
+alias bashrc="nvim ~/.bashrc"
+alias projects="cd ~/Documents/projects"
+alias v=nvim
+alias dot="cd ~/.config/dotfiles"
+alias alaback="alacritty -o 'window.opacity=1'"

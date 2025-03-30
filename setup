@@ -8,7 +8,15 @@ git clone https://github.com/rose-pine/alacritty.git ~/.config/alacritty/themes/
 cp ~/.config/alacritty/themes/repos/dist/* ~/.config/alacritty/themes
 rm -rf ~/.config/alacritty/themes/repos
 
-ln -sf "$PWD/.bashrc" "$HOME"/.bashrc
+# links config files
 ln -sf "$PWD/alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.toml
-ln -sf "$PWD/.tmux.conf" "$HOME"/.tmux.conf
+ln -sf "$PWD/tmux/.tmux.conf" "$HOME"/.tmux.conf
 ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
+
+# appends function to .bashrc to integrate .bash_dot
+printf "\n# runs additional .bash_dot file\nif [ -f ~/.config/dotfiles/.bash_dot ]; then \n    . ~/.config/dotfiles/.bash_dot\nfi" >> "$HOME"/.bashrc
+source "$HOME"/.bashrc
+
+# tmux source file 
+chmod +x "$PWD"/tmux/mode_indicator.tmux
+tmux source-file "$HOME"/.tmux.conf
