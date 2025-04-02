@@ -1,7 +1,8 @@
-return { 
-  "rose-pine/neovim", 
-  name = "rose-pine",
-  opts = {
+return {
+	"rose-pine/neovim",
+	name = "rose-pine",
+	config = function()
+    require("rose-pine").setup({
     variant = "auto", -- auto, main, moon, or dawn
     dark_variant = "main", -- main, moon, or dawn
     dim_inactive_windows = false,
@@ -16,7 +17,7 @@ return {
     styles = {
         bold = true,
         italic = true,
-        transparency = false,
+        transparency = true,
     },
 
     groups = {
@@ -58,9 +59,13 @@ return {
         -- },
     },
 
+	-- NOTE: Highlight groups are extended (merged) by default. Disable this
+	-- per group via `inherit = false`
     highlight_groups = {
         -- Comment = { fg = "foam" },
+        -- StatusLine = { fg = "love", bg = "love", blend = 15 },
         -- VertSplit = { fg = "muted", bg = "muted" },
+        -- Visual = { fg = "base", bg = "text", inherit = false },
     },
 
     before_highlight = function(group, highlight, palette)
@@ -74,10 +79,11 @@ return {
         --     highlight.fg = palette.foam
         -- end
     end,
-  },
+  })
 
-  config = function()
-    -- load the colorscheme here
-    vim.cmd("colorscheme rose-pine")
-  end,
+  vim.cmd("colorscheme rose-pine")
+  -- vim.cmd("colorscheme rose-pine-main")
+  -- vim.cmd("colorscheme rose-pine-moon")
+  -- vim.cmd("colorscheme rose-pine-dawn")
+	end
 }
