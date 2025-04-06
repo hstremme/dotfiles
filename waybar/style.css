@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: CaskaydiaMono Nerd Font, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
 
@@ -58,7 +58,7 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    /* box-shadow: inset 0 -3px #ffffff; */
 }
 
 /* you can set a style on hover for any module like this */
@@ -68,12 +68,16 @@ button:hover {
 
 #workspaces {
     background-color: @base;
+    border-radius: 7px;
 }
 
 #workspaces button {
-    padding: 0 5px;
+    min-width: 24px;
     background-color: transparent;
-    color: #ffffff;
+    color: @text;
+    border-radius: 5px;
+    padding: 0;
+    margin: 3px;
 }
 
 #workspaces button:hover {
@@ -81,8 +85,8 @@ button:hover {
 }
 
 #workspaces button.active {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    color: @base;
+    background: linear-gradient(135deg, #F6C177 10.01%, #EB6F92 91.58%);
 }
 
 #workspaces button.urgent {
@@ -91,7 +95,7 @@ button:hover {
 
 #mode {
     background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    /* box-shadow: inset 0 -3px #ffffff; */
 }
 
 #clock,
@@ -112,11 +116,10 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
+    color: @text;
 }
 
-#window,
-#workspaces {
+#window {
     margin: 0 4px;
 }
 
@@ -131,7 +134,8 @@ button:hover {
 }
 
 #clock {
-    background-color: #64727D;
+    background-color: @base;
+    border-radius: 7px;
 }
 
 #battery {
@@ -186,8 +190,61 @@ label:focus {
 }
 
 #cpu {
-    background-color: #2ecc71;
-    color: #000000;
+    background-color: @base;
+    color: @text;
+    border-radius: 7px;
+    padding-left: 8px;
+    padding-right: 13px;
+    transition: background-image 0.2s ease-in-out;
+}
+
+#cpu.ten {
+    background-image: linear-gradient(0deg, @muted 10.00%, @base 10.01%);
+}
+
+#cpu.twenty {
+    background-image: linear-gradient(0deg, @muted 20.00%, @base 20.01%);
+}
+
+#cpu.thirty {
+    background-image: linear-gradient(0deg, @muted 30.00%, @base 30.01%);
+}
+
+#cpu.fourty {
+    background-image: linear-gradient(0deg, @muted 40.00%, @base 40.01%);
+}
+
+#cpu.fifty {
+    background-image: linear-gradient(0deg, @muted 50.00%, @base 50.01%);
+}
+
+#cpu.sixty {
+    background-image: linear-gradient(0deg, @muted 60.00%, @base 60.01%);
+}
+
+#cpu.seventy {
+    background-image: linear-gradient(0deg, @muted 70.00%, @base 70.01%);
+    color: @rose;
+}
+
+#cpu.eighty {
+    background-image: linear-gradient(0deg, @muted 80.00%, @base 80.01%);
+    color: @gold;
+}
+
+#cpu.eighty {
+    background-image: linear-gradient(0deg, @muted 80.00%, @base 80.01%);
+    color: @love;
+}
+
+#cpu.ninety {
+    background-image: linear-gradient(0deg, @muted 90.00%, @base 90.01%);
+    color: @love;
+}
+
+#cpu.hundred {
+    background-image: linear-gradient(0deg, @gold 100.00%, @gold 100.00%);
+    color: @love;
 }
 
 #memory {
@@ -230,11 +287,14 @@ label:focus {
 }
 
 #custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
+    background-color: @base;
+    color: @text;
     min-width: 100px;
+    border-radius: 7px;
+    padding: 0 10px 0 0;
 }
 
+/*
 #custom-media.custom-spotify {
     background-color: #66cc99;
 }
@@ -242,6 +302,7 @@ label:focus {
 #custom-media.custom-vlc {
     background-color: #ffa000;
 }
+*/
 
 #temperature {
     background-color: #f0932b;

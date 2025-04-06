@@ -19,12 +19,13 @@
         "sway/window"
     ],
     "modules-right": [
-        "mpd",
-        "idle_inhibitor",
+        // "mpd",
+        // "idle_inhibitor",
+        "clock",
+        "cpu",
         "pulseaudio",
         "network",
         "power-profiles-daemon",
-        "cpu",
         "memory",
         "temperature",
         "backlight",
@@ -32,7 +33,6 @@
         "sway/language",
         "battery",
         "battery#bat2",
-        "clock",
         "tray",
         "custom/power"
     ],
@@ -111,12 +111,26 @@
     },
     "clock": {
         // "timezone": "America/New_York",
+        "format": "󰃭 {:%d %b %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        // "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "{usage}%",
+        // "justify": "center",
+        "states": {
+            "ten": 10,
+            "twenty": 20,
+            "thirty": 30,
+            "fourty": 40,
+            "fifty": 60,
+            "seventy": 70,
+            "eighty": 80,
+            "ninety": 90,
+            "hundred": 100
+        },
     },
     "memory": {
         "format": "{}% "
@@ -195,10 +209,10 @@
         "format": "{icon} {text}",
         "return-type": "json",
         "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
+        // "format-icons": {
+        //     "spotify": "",
+        //     "default": "🎜"
+        // },
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
