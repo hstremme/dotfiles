@@ -12,6 +12,9 @@ rm -rf ~/.config/alacritty/themes/repos
 ln -sf "$PWD/alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.toml
 ln -sf "$PWD/tmux/.tmux.conf" "$HOME"/.tmux.conf
 ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
+ln -sf "$PWD/hyprland" "$XDG_CONFIG_HOME"/hypr
+ln -sf "$PWD/waybar" "$XDG_CONFIG_HOME"/waybar
+
 
 # appends function to .bashrc to integrate .bash_dot
 printf "\n# runs additional .bash_dot file\nif [ -f ~/.config/dotfiles/.bash_dot ]; then \n    . ~/.config/dotfiles/.bash_dot\nfi" >> "$HOME"/.bashrc
