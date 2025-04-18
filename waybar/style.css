@@ -63,21 +63,21 @@ button:hover {
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
-    background-color: #a37800;
+    background-color: @overlay;
 }
 
 #workspaces {
     background-color: @base;
-    border-radius: 7px;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 #workspaces button {
-    min-width: 24px;
+    min-width: 31px;
     background-color: transparent;
     color: @text;
-    border-radius: 5px;
+    border-radius: 7px;
     padding: 0;
-    margin: 3px;
 }
 
 #workspaces button:hover {
@@ -109,6 +109,7 @@ button:hover {
 #pulseaudio,
 #wireplumber,
 #custom-media,
+#custom-power,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -117,13 +118,24 @@ button:hover {
 #mpd {
     padding: 0 10px;
     color: @text;
+    background-color: @base;
+    border-radius: 7px;
 }
 
 #window {
     margin: 0 4px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
+.modules-center {
+}
+
+.modules-right {
+    background-color: @base;
+    padding: 7px 8px;
+    border-radius: 10px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */px
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
 }
@@ -133,9 +145,16 @@ button:hover {
     margin-right: 0;
 }
 
+#custom-power{
+    padding: 0 12px 0 8px;
+    background-color: @rose;
+    color: @base;
+}
+
 #clock {
     background-color: @base;
-    border-radius: 7px;
+    border-radius: 10px;
+    padding: 0 15px;
 }
 
 #battery {
@@ -232,11 +251,6 @@ label:focus {
     color: @gold;
 }
 
-#cpu.eighty {
-    background-image: linear-gradient(0deg, @muted 80.00%, @base 80.01%);
-    color: @love;
-}
-
 #cpu.ninety {
     background-image: linear-gradient(0deg, @muted 90.00%, @base 90.01%);
     color: @love;
@@ -260,21 +274,108 @@ label:focus {
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: @base;
+    color: @text;
+    border-radius: 7px;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    color: @rose;
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    padding: 0 14px 0 7px;
+    background-color: @base;
+    color: @text;
+    border-radius: 7px;  
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
+    color: @rose;
+}
+
+#pulseaudio._0 {
+    background-image: linear-gradient(0deg, @muted 0.00%, @base 0.01%);
+}
+
+#pulseaudio._5 {
+    background-image: linear-gradient(0deg, @muted 5.00%, @base 5.01%);
+}
+
+#pulseaudio._10 {
+    background-image: linear-gradient(0deg, @muted 10.00%, @base 10.01%);
+}
+
+#pulseaudio._15 {
+    background-image: linear-gradient(0deg, @muted 15.00%, @base 15.01%);
+}
+
+#pulseaudio._20 {
+    background-image: linear-gradient(0deg, @muted 20.00%, @base 20.01%);
+}
+
+#pulseaudio._25 {
+    background-image: linear-gradient(0deg, @muted 25.00%, @base 25.01%);
+}
+
+#pulseaudio._30 {
+    background-image: linear-gradient(0deg, @muted 30.00%, @base 30.01%);
+}
+
+#pulseaudio._35 {
+    background-image: linear-gradient(0deg, @muted 35.00%, @base 35.01%);
+}
+
+#pulseaudio._40 {
+    background-image: linear-gradient(0deg, @muted 40.00%, @base 40.01%);
+}
+
+#pulseaudio._45 {
+    background-image: linear-gradient(0deg, @muted 45.00%, @base 45.01%);
+}
+
+#pulseaudio._50 {
+    background-image: linear-gradient(0deg, @muted 50.00%, @base 50.01%);
+}
+
+#pulseaudio._55 {
+    background-image: linear-gradient(0deg, @muted 55.00%, @base 55.01%);
+}
+
+#pulseaudio._60 {
+    background-image: linear-gradient(0deg, @muted 60.00%, @base 60.01%);
+}
+
+#pulseaudio._65 {
+    background-image: linear-gradient(0deg, @muted 65.00%, @base 65.01%);
+}
+
+#pulseaudio._70 {
+    background-image: linear-gradient(0deg, @muted 70.00%, @base 70.01%);
+}
+
+#pulseaudio._75 {
+    background-image: linear-gradient(0deg, @muted 75.00%, @base 75.01%);
+}
+
+#pulseaudio._80 {
+    background-image: linear-gradient(0deg, @muted 80.00%, @base 80.01%);
+}
+
+#pulseaudio._85 {
+    background-image: linear-gradient(0deg, @muted 85.00%, @base 85.01%);
+}
+
+#pulseaudio._90 {
+    background-image: linear-gradient(0deg, @muted 90.00%, @base 90.01%);
+}
+
+#pulseaudio._95 {
+    background-image: linear-gradient(0deg, @muted 95.00%, @base 95.01%);
+}
+
+#pulseaudio._100 {
+    background-image: linear-gradient(0deg, @muted 100.00%, @base 100.0%);
 }
 
 #wireplumber {
@@ -290,7 +391,7 @@ label:focus {
     background-color: @base;
     color: @text;
     min-width: 100px;
-    border-radius: 7px;
+    border-radius: 10px;
     padding: 0 10px 0 0;
 }
 
@@ -313,7 +414,10 @@ label:focus {
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: @base;
+    color: @text;
+    border-radius: 7px;
+    padding: 0 6px;
 }
 
 #tray > .passive {
@@ -322,7 +426,6 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
 }
 
 #idle_inhibitor {

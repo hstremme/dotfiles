@@ -1,11 +1,12 @@
 // -*- mode: jsonc -*-
 {
+    "reload_style_on_change": true,
     "margin-top": 10,
     "margin-left": 20,
     "margin-right": 20,
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
+    "height": 40, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
@@ -16,24 +17,25 @@
         "custom/media"
     ],
     "modules-center": [
+        "clock",
         "sway/window"
     ],
+    "expand-center": true,
     "modules-right": [
         // "mpd",
         // "idle_inhibitor",
-        "clock",
         "cpu",
-        "pulseaudio",
-        "network",
-        "power-profiles-daemon",
-        "memory",
-        "temperature",
-        "backlight",
-        "keyboard-state",
-        "sway/language",
-        "battery",
-        "battery#bat2",
         "tray",
+        "network",
+        "pulseaudio",
+        // "power-profiles-daemon",
+        // "memory",
+        // "temperature",
+        // "backlight",
+        // "keyboard-state",
+        // "sway/language",
+        // "battery",
+        // "battery#bat2",
         "custom/power"
     ],
     // Modules configuration
@@ -114,6 +116,7 @@
         "format": "󰃭 {:%d %b %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         // "format-alt": "{:%Y-%m-%d}"
+        "on-click": "swaymsg bar bar-0 mode hide"
     },
     "cpu": {
         "format": "",
@@ -125,7 +128,8 @@
             "twenty": 20,
             "thirty": 30,
             "fourty": 40,
-            "fifty": 60,
+            "fifty": 50,
+            "sixty": 60,
             "seventy": 70,
             "eighty": 80,
             "ninety": 90,
@@ -179,19 +183,19 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-wifi": "  {bandwidthDownBits}  {bandwidthUpBits} ",
+        "format-ethernet": "  {bandwidthDownBits}  {bandwidthUpBits} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-disconnected": "󰖪 Disconnected!",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "format": "",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-muted": " ",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -201,9 +205,32 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": ["", "", " "]
         },
-        "on-click": "pwvucontrol"
+        "on-click": "pwvucontrol",
+        "states": {
+            "_0": 0,
+            "_5": 5,
+            "_10": 10,
+            "_15": 15,
+            "_20": 20,
+            "_25": 25,
+            "_30": 30,
+            "_35": 35,
+            "_40": 40,
+            "_45": 45,
+            "_50": 50,
+            "_55": 55,
+            "_60": 60,
+            "_65": 65,
+            "_70": 70,
+            "_75": 75,
+            "_80": 80,
+            "_85": 85,
+            "_90": 90,
+            "_95": 95,
+            "_100": 100,
+        },
     },
     "custom/media": {
         "format": "{icon} {text}",
@@ -218,7 +245,7 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-        "format" : "⏻ ",
+        "format" : "",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
