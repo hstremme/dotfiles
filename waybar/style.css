@@ -110,6 +110,7 @@ button:hover {
 #wireplumber,
 #custom-media,
 #custom-power,
+#custom-weather,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -126,10 +127,8 @@ button:hover {
     margin: 0 4px;
 }
 
+.modules-right,
 .modules-center {
-}
-
-.modules-right {
     background-color: @base;
     padding: 7px 8px;
     border-radius: 10px;
@@ -149,6 +148,9 @@ button:hover {
     padding: 0 12px 0 8px;
     background-color: @rose;
     color: @base;
+}
+
+#custom-weather{
 }
 
 #clock {
