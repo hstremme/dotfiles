@@ -8,6 +8,7 @@ return {
         "css",
         "dockerfile",
         "gitignore",
+        "go",
         "html",
         "java",
         "javascript",
