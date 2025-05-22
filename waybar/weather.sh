@@ -1,76 +1,110 @@
 #!/bin/sh
 
-# CURL JSON from wttr.in for luebeck
-JSON=$(curl -s wttr.in/luebeck?format=j1)
+# CURL JSON from Bright Sky API for luebeck
+JSON=$(curl -s https://api.brightsky.dev/current_weather?dwd_station_id=03086)
 
 # Getting Values from JSON 
-CURRENT_TEMP=$(echo "$JSON" | jq '.current_condition[0].temp_C | tonumber')
-CURRENT_CODE=$(echo "$JSON" | jq '.current_condition[0].weatherCode | tonumber')
-CURRENT_DESC=$(echo "$JSON" | jq -r '.current_condition[0].weatherDesc[0].value')
-CURRENT_TEMP_FEEL=$(echo "$JSON" | jq '.current_condition[0].FeelsLikeC | tonumber')
-CURRENT_WINDSPEED=$(echo "$JSON" | jq '.current_condition[0].windspeedKmph | tonumber')
-CURRENT_WINDDIR=$(echo "$JSON" | jq -r '.current_condition[0].winddir16Point')
+CURRENT_TEMP=$(echo "$JSON" | jq '.weather.temperature')
+CURRENT_TEMP=$(printf '%.*f' 0 "$CURRENT_TEMP")
+CURRENT_ICON_DESC=$(echo "$JSON" | jq -r '.weather.icon')
+CURRENT_WINDSPEED=$(echo "$JSON" | jq '.weather.wind_speed_30')
+CURRENT_WINDSPEED=$(printf '%.*f' 0 "$CURRENT_WINDSPEED")
+CURRENT_GUSTSPEED=$(echo "$JSON" | jq '.weather.wind_gust_speed_30')
+CURRENT_GUSTSPEED=$(printf '%.*f' 0 "$CURRENT_GUSTSPEED")
+CURRENT_WINDDIR=$(echo "$JSON" | jq '.weather.wind_direction_30')
 
 # Tranlating weather codes into symbols
 code_to_symbol() {
   case $1 in
 
-    113)
+    "clear-day")
       echo "󰖙"
       ;;
 
-    116)
+    "clear-night")
+      echo "󰖔"
+      ;;
+
+    "partly-cloudy-day")
       echo "󰖕"
       ;;
 
-    119 | 122)
+    "partly-cloudy-night")
+      echo "󰼱"
+      ;;
+
+    "cloudy")
       echo "󰖐"
       ;;
 
-    266 | 293 | 296 | 302 | 308 | 359)
+    "fog")
+      echo "󰖑"
+      ;;
+
+    "wind")
+      echo "󰖝"
+      ;;
+
+    "rain")
       echo ""
       ;;
 
-    *)
-      echo $CURRENT_DESC
+    "sleet")
+      echo "󰙿"
+      ;;
+
+    "snow")
+      echo "󰖘"
+      ;;
+
+    "snow")
+      echo "󰖒"
+      ;;
+
+    "thunderstorm")
+      echo "󰖓"
+      ;;
+
+    "null" | *)
+      echo $CURRENT_ICON_DESC
       ;;
 
   esac
 }
-CURRENT_SYMBOL=$(code_to_symbol "$CURRENT_CODE")
+CURRENT_SYMBOL=$(code_to_symbol "$CURRENT_ICON_DESC")
 
 winddir_to_symbol() {
   case $1 in
 
-    "N")
-      echo ""
+    8 | 0)
+      echo "󰁅"
       ;;
 
-    "NE" | "NNE" | "ENE")
+    1)
       echo ""
       ;;
 
-    "E")
-      echo ""
+    2)
+      echo "󰁍"
       ;;
 
-    "SE" | "ESE" | "SSE")
+    3)
       echo ""
       ;;
 
-    "S")
-      echo ""
+    4)
+      echo "󰁝"
       ;;
 
-    "SW" | "WSW" | "SSW")
+    5)
       echo ""
       ;;
 
-    "W")
-      echo ""
+    6)
+      echo "󰁔"
       ;;
 
-    "NW" | "WNW" | "NNW")
+    7)
       echo ""
       ;;
 
@@ -80,6 +114,7 @@ winddir_to_symbol() {
 
   esac
 }
+CURRENT_WINDDIR=$(printf '%.*f' 0 $(($CURRENT_WINDDIR/45)))
 CURRENT_WINDDIR_SYMBOL=$(winddir_to_symbol "$CURRENT_WINDDIR")
 
 # Setting output, adding wind symbol for WindKmph over 40
