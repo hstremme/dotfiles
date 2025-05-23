@@ -86,11 +86,22 @@ button:hover {
 
 #workspaces button.active {
     color: @base;
-    background: linear-gradient(135deg, #F6C177 10.01%, #EB6F92 91.58%);
+    background: linear-gradient(135deg, @love 10.01%, @iris 91.58%);
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    color: @base;
+    background-color: @text;
+    animation-name: blinking;
+    animation-duration: 3s;
+    animation-iteration-count: 5;
+}
+
+@keyframes blinking {
+    30%   {background-color: @text; color: @base}
+    31%   {background-color: @base; color: @text}
+    61%   {background-color: @base; color: @text}
+    62%   {background-color: @text; color: @base}
 }
 
 #mode {
@@ -130,7 +141,7 @@ button:hover {
 .modules-right,
 .modules-center {
     background-color: @base;
-    padding: 7px 8px;
+    padding: 5px 5px;
     border-radius: 10px;
 }
 
@@ -145,8 +156,8 @@ button:hover {
 }
 
 #custom-power{
-    padding: 0 12px 0 8px;
-    background-color: @rose;
+    padding: 0 14px 0 10px;
+    background-color: @foam;
     color: @base;
 }
 
@@ -214,8 +225,7 @@ label:focus {
     background-color: @base;
     color: @text;
     border-radius: 7px;
-    padding-left: 8px;
-    padding-right: 13px;
+    padding: 0 14px 0 9px;
     transition: background-image 0.2s ease-in-out;
 }
 
@@ -286,7 +296,7 @@ label:focus {
 }
 
 #pulseaudio {
-    padding: 0 14px 0 7px;
+    padding: 0 15px 0 8px;
     background-color: @base;
     color: @text;
     border-radius: 7px;  
