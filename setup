@@ -16,6 +16,7 @@ ln -sf "$PWD/hyprland" "$XDG_CONFIG_HOME"/hypr
 ln -sf "$PWD/waybar" "$XDG_CONFIG_HOME"/waybar
 ln -sf "$PWD/wofi" "$XDG_CONFIG_HOME"/wofi
 ln -sf "$PWD/colors.css" "$XDG_CONFIG_HOME"/colors.css
+ln -sf "$PWD/dunst" "$XDG_CONFIG_HOME"/dunst
 
 
 # appends function to .bashrc to integrate .bash_dot
