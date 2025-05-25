@@ -6,7 +6,12 @@
     color: @text;
 }
 
+#window {
+  background: none;
+}
+
 #outer-box {
+    border-radius: 7px;
     background-color: @base;
     border: 2px solid @foam;
     padding: 3px;
@@ -14,7 +19,7 @@
 
 #input {
   color: @text;
-  border-radius: 0;
+  border-radius: 2px;
   background-color: @overlay;
   border: none;
   margin-bottom: 3px;
@@ -25,6 +30,7 @@
 }
 
 #entry {
+  border-radius: 2px;
   min-height: 30px;
   border: none;
 }
