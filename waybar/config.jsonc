@@ -1,9 +1,9 @@
 // -*- mode: jsonc -*-
 {
     "reload_style_on_change": true,
-    "margin-top": 10,
-    "margin-left": 15,
-    "margin-right": 15,
+    "margin-top": 5,
+    "margin-left": 5,
+    "margin-right": 5,
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 40, // Waybar height (to be removed for auto height)

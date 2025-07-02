@@ -61,6 +61,10 @@ button:hover {
     /* box-shadow: inset 0 -3px #ffffff; */
 }
 
+tooltip{
+    background-color: @base;
+}
+
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
     background-color: @overlay;
