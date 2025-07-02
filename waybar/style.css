@@ -122,6 +122,7 @@ button:hover {
 #custom-media,
 #custom-power,
 #custom-weather,
+#custom-vpn,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -517,4 +518,17 @@ label:focus {
 
 #privacy-item.audio-out {
     background-color: #0069d4;
+}
+
+#custom-vpn {
+  padding: 0px;
+  margin-top: 2px;
+}
+
+#custom-vpn.disconnected {
+  color: @rose;
+}
+
+#custom-vpn.failed {
+  color: @love;
 }

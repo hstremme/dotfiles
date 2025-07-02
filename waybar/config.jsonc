@@ -26,6 +26,7 @@
         // "idle_inhibitor",
         "cpu",
         "tray",
+        "custom/vpn",
         "network",
         "pulseaudio",
         // "power-profiles-daemon",
@@ -260,6 +261,13 @@
         "exec": "$HOME/.config/waybar/weather.sh",
         "return-type": "json",
         "interval": 15,
-        "on-click": "alacritty --hold -e curl v2n.wttr.in/luebeck"
-    }
+        "on-click": "zen-browser https://www.windy.com/multimodel/53.866/10.685?53.809,11.096,8"
+    },
+    "custom/vpn": {
+        "format": "<span size='x-large'> {text} </span>",
+        "exec": "$HOME/.config/waybar/vpn/vpnWaybar.sh",
+        "return-type": "json",
+        "interval": 10,
+        "on-click": "$HOME/.config/waybar/vpn/vpnAction.sh \"$($HOME/.config/waybar/vpn/vpnList.sh \"Berlin\" | wofi -d -m --sort-order=alphabetical)\""
+    },
 }
