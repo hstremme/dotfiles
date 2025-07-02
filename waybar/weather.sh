@@ -118,14 +118,14 @@ CURRENT_WINDDIR=$(printf '%.*f' 0 $(($CURRENT_WINDDIR/45)))
 CURRENT_WINDDIR_SYMBOL=$(winddir_to_symbol "$CURRENT_WINDDIR")
 
 # Setting output, adding wind symbol for WindKmph over 40
-if [ $CURRENT_WINDSPEED -ge 40 ]; then 
+if [ $CURRENT_GUSTSPEED -ge 45 ]; then 
   OUTPUT="$CURRENT_SYMBOL $CURRENT_TEMP° 󱗺"
 else
   OUTPUT="$CURRENT_SYMBOL $CURRENT_TEMP°"
 fi
 
 # Setting tooltip output
-OUTPUT_TOOLTIP="$CURRENT_DESC /  $CURRENT_TEMP_FEEL° / $CURRENT_WINDDIR_SYMBOL ${CURRENT_WINDSPEED}km/h"
+OUTPUT_TOOLTIP="$CURRENT_ICON_DESC / $CURRENT_WINDDIR_SYMBOL ${CURRENT_GUSTSPEED}km/h"
 
 printf '{"text": "%s", "tooltip": "%s"}' "$OUTPUT" "$OUTPUT_TOOLTIP"
 
