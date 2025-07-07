@@ -23,7 +23,7 @@
     "expand-center": true,
     "modules-right": [
         // "mpd",
-        // "idle_inhibitor",
+        "idle_inhibitor",
         "cpu",
         "tray",
         "custom/vpn",

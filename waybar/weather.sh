@@ -81,7 +81,7 @@ winddir_to_symbol() {
       ;;
 
     1)
-      echo ""
+      echo ""
       ;;
 
     2)
@@ -89,7 +89,7 @@ winddir_to_symbol() {
       ;;
 
     3)
-      echo ""
+      echo ""
       ;;
 
     4)
@@ -97,7 +97,7 @@ winddir_to_symbol() {
       ;;
 
     5)
-      echo ""
+      echo ""
       ;;
 
     6)
@@ -105,7 +105,7 @@ winddir_to_symbol() {
       ;;
 
     7)
-      echo ""
+      echo ""
       ;;
 
     *)
