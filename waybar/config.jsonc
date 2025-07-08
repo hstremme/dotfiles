@@ -23,11 +23,11 @@
     "expand-center": true,
     "modules-right": [
         // "mpd",
-        "idle_inhibitor",
         "cpu",
         "tray",
         "custom/vpn",
         "network",
+        "idle_inhibitor",
         "pulseaudio",
         // "power-profiles-daemon",
         // "memory",

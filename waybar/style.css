@@ -446,12 +446,12 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: #2d3436;
+    padding: 0 15px 0 8px;
 }
 
 #idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
+    background-color: @text;
+    color: @base;
 }
 
 #mpd {
