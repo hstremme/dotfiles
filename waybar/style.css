@@ -536,3 +536,7 @@ label:focus {
 #custom-vpn.failed {
   color: @love;
 }
+
+#custom-vpn.connected-uni {
+  color: @rose;
+}
