@@ -176,31 +176,71 @@ tooltip{
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    font-size: 15px;
+    padding: 0 12px 0 11px;
+    color: @text;
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    color: @text;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: @text;
+        color: @love;
     }
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: @love;
+    color: @text;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+#battery.ten {
+    background-image: linear-gradient(0deg, @muted 10.00%, @base 10.01%);
+}
+
+#battery.twenty {
+    background-image: linear-gradient(0deg, @muted 20.00%, @base 20.01%);
+}
+
+#battery.thirty {
+    background-image: linear-gradient(0deg, @muted 30.00%, @base 30.01%);
+}
+
+#battery.fourty {
+    background-image: linear-gradient(0deg, @muted 40.00%, @base 40.01%);
+}
+
+#battery.fifty {
+    background-image: linear-gradient(0deg, @muted 50.00%, @base 50.01%);
+}
+
+#battery.sixty {
+    background-image: linear-gradient(0deg, @muted 60.00%, @base 60.01%);
+}
+
+#battery.seventy {
+    background-image: linear-gradient(0deg, @muted 70.00%, @base 70.01%);
+}
+
+#battery.eighty {
+    background-image: linear-gradient(0deg, @muted 80.00%, @base 80.01%);
+}
+
+#battery.ninety {
+    background-image: linear-gradient(0deg, @muted 90.00%, @base 90.01%);
+}
+
+#battery.hundred {
+    background-image: linear-gradient(0deg, @muted 100.00%, @muted 100.00%);
 }
 
 #power-profiles-daemon {

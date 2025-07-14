@@ -35,8 +35,8 @@
         // "backlight",
         // "keyboard-state",
         // "sway/language",
-        // "battery",
-        // "battery#bat2",
+        "battery",
+        "battery#bat2",
         "custom/power"
     ],
     // Modules configuration
@@ -154,18 +154,27 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
+            "hundred": 100,
+            "ninty": 90,
+            "eighty": 80,
+            "seventy": 70,
+            "sixty": 60,
+            "fifty": 50,
+            "fourty": 40,
+            "thirty": 30,
+            "twenty": 20,
+            "ten": 10,
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+        "format": "{icon}",
+        "format-full": "{icon}",
+        "format-charging": "󱐋",
+        "format-plugged": "",
+        "format-alt": "{capacity}%",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["󰂃", "󰁻", "󰁾", "󰂀", "󰁹"]
     },
     "battery#bat2": {
         "bat": "BAT2"
