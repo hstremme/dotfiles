@@ -12,6 +12,12 @@ rm -rf ~/.config/alacritty/themes/repos
 ln -sf "$PWD/alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.toml
 ln -sf "$PWD/tmux/.tmux.conf" "$HOME"/.tmux.conf
 ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
+ln -sf "$PWD/hypr" "$XDG_CONFIG_HOME"/hypr
+ln -sf "$PWD/waybar" "$XDG_CONFIG_HOME"/waybar
+ln -sf "$PWD/wofi" "$XDG_CONFIG_HOME"/wofi
+ln -sf "$PWD/colors.css" "$XDG_CONFIG_HOME"/colors.css
+ln -sf "$PWD/dunst" "$XDG_CONFIG_HOME"/dunst
+ln -sf $PWD/gtk $XDG_CONFIG_HOME/gtk-4.0
 
 # appends function to .bashrc to integrate .bash_dot
 printf "\n# runs additional .bash_dot file\nif [ -f ~/.config/dotfiles/.bash_dot ]; then \n    . ~/.config/dotfiles/.bash_dot\nfi" >> "$HOME"/.bashrc

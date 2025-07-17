@@ -1,0 +1,536 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: CaskaydiaMono Nerd Font, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
+
+@define-color base #191724;
+@define-color surface #1F1D2E;
+@define-color overlay #26233A;
+@define-color muted #6E6A86;
+@define-color subtle #908CAA;
+@define-color text #E0DEF4;
+@define-color love #EB6F92;
+@define-color gold #F6C177;
+@define-color rose #EBBCBA;
+@define-color pine #31748F;
+@define-color foam #9CCFD8;
+@define-color iris #C4A7E7;
+
+window#waybar {
+    background-color: transparent;
+    color: #000000;
+    transition-property: background-color;
+    transition-duration: .5s;
+    padding-top: 10px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    /* box-shadow: inset 0 -3px #ffffff; */
+}
+
+tooltip{
+    background-color: @base;
+}
+
+/* you can set a style on hover for any module like this */
+#pulseaudio:hover {
+    background-color: @overlay;
+}
+
+#workspaces {
+    background-color: @base;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#workspaces button {
+    min-width: 31px;
+    background-color: transparent;
+    color: @text;
+    border-radius: 7px;
+    padding: 0;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.active {
+    color: @base;
+    background: linear-gradient(135deg, @love 10.01%, @iris 91.58%);
+}
+
+#workspaces button.urgent {
+    color: @base;
+    background-color: @text;
+    animation-name: blinking;
+    animation-duration: 3s;
+    animation-iteration-count: 5;
+}
+
+@keyframes blinking {
+    30%   {background-color: @text; color: @base}
+    31%   {background-color: @base; color: @text}
+    61%   {background-color: @base; color: @text}
+    62%   {background-color: @text; color: @base}
+}
+
+#mode {
+    background-color: #64727D;
+    /* box-shadow: inset 0 -3px #ffffff; */
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#custom-power,
+#custom-weather,
+#custom-vpn,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    color: @text;
+    border-radius: 7px;
+}
+
+#window {
+    margin: 0 4px;
+}
+
+.modules-right,
+.modules-center {
+    background-color: @base;
+    padding: 5px 5px;
+    border-radius: 10px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */px
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#custom-power{
+    padding: 0 14px 0 10px;
+    background-color: @foam;
+    color: @base;
+}
+
+#custom-weather{
+    padding: 0 9px;
+}
+
+#clock {
+    padding: 0 9px;
+}
+
+#battery {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+    padding-right: 15px;
+}
+
+#power-profiles-daemon.performance {
+    background-color: #f53c3c;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: #2980b9;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: #2ecc71;
+    color: #000000;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    color: @text;
+    border-radius: 7px;
+    padding: 0 14px 0 9px;
+    transition: background-image 0.2s ease-in-out;
+}
+
+#cpu.ten {
+    background-image: linear-gradient(0deg, @muted 10.00%, @base 10.01%);
+}
+
+#cpu.twenty {
+    background-image: linear-gradient(0deg, @muted 20.00%, @base 20.01%);
+}
+
+#cpu.thirty {
+    background-image: linear-gradient(0deg, @muted 30.00%, @base 30.01%);
+}
+
+#cpu.fourty {
+    background-image: linear-gradient(0deg, @muted 40.00%, @base 40.01%);
+}
+
+#cpu.fifty {
+    background-image: linear-gradient(0deg, @muted 50.00%, @base 50.01%);
+}
+
+#cpu.sixty {
+    background-image: linear-gradient(0deg, @muted 60.00%, @base 60.01%);
+}
+
+#cpu.seventy {
+    background-image: linear-gradient(0deg, @muted 70.00%, @base 70.01%);
+    color: @rose;
+}
+
+#cpu.eighty {
+    background-image: linear-gradient(0deg, @muted 80.00%, @base 80.01%);
+    color: @gold;
+}
+
+#cpu.ninety {
+    background-image: linear-gradient(0deg, @muted 90.00%, @base 90.01%);
+    color: @love;
+}
+
+#cpu.hundred {
+    background-image: linear-gradient(0deg, @gold 100.00%, @gold 100.00%);
+    color: @love;
+}
+
+#memory {
+    background-color: #9b59b6;
+}
+
+#disk {
+    background-color: #964B00;
+}
+
+#backlight {
+    background-color: #90b1b1;
+}
+
+#network {
+    color: @text;
+    border-radius: 7px;
+    padding: 0 16px 0 9px;
+}
+
+#network.disconnected {
+    color: @rose;
+}
+
+#pulseaudio {
+    padding: 0 16px 0 9px;
+    background-color: @base;
+    color: @text;
+    border-radius: 7px;  
+}
+
+#pulseaudio.muted {
+    color: @rose;
+    padding: 0 8px 0 9px;
+}
+
+#pulseaudio._0 {
+    background-image: linear-gradient(0deg, @muted 0.00%, @base 0.01%);
+}
+
+#pulseaudio._5 {
+    background-image: linear-gradient(0deg, @muted 5.00%, @base 5.01%);
+}
+
+#pulseaudio._10 {
+    background-image: linear-gradient(0deg, @muted 10.00%, @base 10.01%);
+}
+
+#pulseaudio._15 {
+    background-image: linear-gradient(0deg, @muted 15.00%, @base 15.01%);
+}
+
+#pulseaudio._20 {
+    background-image: linear-gradient(0deg, @muted 20.00%, @base 20.01%);
+}
+
+#pulseaudio._25 {
+    background-image: linear-gradient(0deg, @muted 25.00%, @base 25.01%);
+}
+
+#pulseaudio._30 {
+    background-image: linear-gradient(0deg, @muted 30.00%, @base 30.01%);
+}
+
+#pulseaudio._35 {
+    background-image: linear-gradient(0deg, @muted 35.00%, @base 35.01%);
+}
+
+#pulseaudio._40 {
+    background-image: linear-gradient(0deg, @muted 40.00%, @base 40.01%);
+}
+
+#pulseaudio._45 {
+    background-image: linear-gradient(0deg, @muted 45.00%, @base 45.01%);
+}
+
+#pulseaudio._50 {
+    background-image: linear-gradient(0deg, @muted 50.00%, @base 50.01%);
+}
+
+#pulseaudio._55 {
+    background-image: linear-gradient(0deg, @muted 55.00%, @base 55.01%);
+}
+
+#pulseaudio._60 {
+    background-image: linear-gradient(0deg, @muted 60.00%, @base 60.01%);
+}
+
+#pulseaudio._65 {
+    background-image: linear-gradient(0deg, @muted 65.00%, @base 65.01%);
+}
+
+#pulseaudio._70 {
+    background-image: linear-gradient(0deg, @muted 70.00%, @base 70.01%);
+}
+
+#pulseaudio._75 {
+    background-image: linear-gradient(0deg, @muted 75.00%, @base 75.01%);
+}
+
+#pulseaudio._80 {
+    background-image: linear-gradient(0deg, @muted 80.00%, @base 80.01%);
+}
+
+#pulseaudio._85 {
+    background-image: linear-gradient(0deg, @muted 85.00%, @base 85.01%);
+}
+
+#pulseaudio._90 {
+    background-image: linear-gradient(0deg, @muted 90.00%, @base 90.01%);
+}
+
+#pulseaudio._95 {
+    background-image: linear-gradient(0deg, @muted 95.00%, @base 95.01%);
+}
+
+#pulseaudio._100 {
+    background-image: linear-gradient(0deg, @muted 100.00%, @base 100.0%);
+}
+
+#wireplumber {
+    background-color: #fff0f5;
+    color: #000000;
+}
+
+#wireplumber.muted {
+    background-color: #f53c3c;
+}
+
+#custom-media {
+    background-color: @base;
+    color: @text;
+    min-width: 100px;
+    border-radius: 10px;
+    padding: 0 10px 0 0;
+}
+
+/*
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+*/
+
+#temperature {
+    background-color: #f0932b;
+}
+
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+
+#tray {
+    color: @text;
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#idle_inhibitor {
+    padding: 0 16px 0 9px;
+}
+
+#idle_inhibitor.activated {
+    background-color: @text;
+    color: @base;
+}
+
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
+}
+
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+
+#mpd.paused {
+    background-color: #51a37a;
+}
+
+#language {
+    background: #00b093;
+    color: #740864;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    color: white;
+}
+
+#privacy-item.screenshare {
+    background-color: #cf5700;
+}
+
+#privacy-item.audio-in {
+    background-color: #1ca000;
+}
+
+#privacy-item.audio-out {
+    background-color: #0069d4;
+}
+
+#custom-vpn {
+  padding: 0 13px 0 8px;
+}
+
+#custom-vpn.disconnected {
+  color: @rose;
+}
+
+#custom-vpn.failed {
+  color: @love;
+}
+
+#custom-vpn.connected-uni {
+  color: @rose;
+}

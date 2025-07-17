@@ -10,6 +10,9 @@ vim.opt.smartindent = true
 
 vim.opt.scrolloff = 8
 
+-- Disable Netrw Header/Banner
+vim.g.netrw_banner = 0
+
 -- Enable folding
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'

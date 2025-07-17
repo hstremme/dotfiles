@@ -1,0 +1,50 @@
+@import url("/home/hein/.config/colors.css");
+*
+* {
+    font-family: CaskaydiaMono Nerd Font;
+    font-size: 16px;
+    color: @text;
+}
+
+#window {
+  background: none;
+}
+
+#outer-box {
+    border-radius: 7px;
+    background-color: @base;
+    border: 2px solid @foam;
+    padding: 3px;
+}
+
+#input {
+  color: @text;
+  border-radius: 2px;
+  background-color: @overlay;
+  border: none;
+  margin-bottom: 3px;
+}
+
+#input:focus {
+  box-shadow: none;
+}
+
+#entry {
+  border-radius: 2px;
+  min-height: 30px;
+  border: none;
+}
+
+#text {
+  padding-left: 10px;
+}
+
+#img {
+  min-width: 60px;
+}
+
+#entry:selected {
+  background-color: @pine;
+  border: none;
+  outline: none;
+}
