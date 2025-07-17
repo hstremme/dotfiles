@@ -133,9 +133,7 @@ tooltip{
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    padding: 0 10px;
     color: @text;
-    background-color: @base;
     border-radius: 7px;
 }
 
@@ -167,12 +165,11 @@ tooltip{
 }
 
 #custom-weather{
+    padding: 0 9px;
 }
 
 #clock {
-    background-color: @base;
-    border-radius: 10px;
-    padding: 0 15px;
+    padding: 0 9px;
 }
 
 #battery {
@@ -267,7 +264,6 @@ label:focus {
 }
 
 #cpu {
-    background-color: @base;
     color: @text;
     border-radius: 7px;
     padding: 0 14px 0 9px;
@@ -331,9 +327,9 @@ label:focus {
 }
 
 #network {
-    background-color: @base;
     color: @text;
     border-radius: 7px;
+    padding: 0 16px 0 9px;
 }
 
 #network.disconnected {
@@ -341,7 +337,7 @@ label:focus {
 }
 
 #pulseaudio {
-    padding: 0 15px 0 8px;
+    padding: 0 16px 0 9px;
     background-color: @base;
     color: @text;
     border-radius: 7px;  
@@ -349,6 +345,7 @@ label:focus {
 
 #pulseaudio.muted {
     color: @rose;
+    padding: 0 8px 0 9px;
 }
 
 #pulseaudio._0 {
@@ -471,10 +468,8 @@ label:focus {
 }
 
 #tray {
-    background-color: @base;
     color: @text;
-    border-radius: 7px;
-    padding: 0 6px;
+    padding: 0 8px;
 }
 
 #tray > .passive {
@@ -486,7 +481,7 @@ label:focus {
 }
 
 #idle_inhibitor {
-    padding: 0 15px 0 8px;
+    padding: 0 16px 0 9px;
 }
 
 #idle_inhibitor.activated {
@@ -565,8 +560,7 @@ label:focus {
 }
 
 #custom-vpn {
-  padding: 0px;
-  margin-top: 2px;
+  padding: 0 13px 0 8px;
 }
 
 #custom-vpn.disconnected {
